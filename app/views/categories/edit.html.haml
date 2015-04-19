@@ -1,0 +1,13 @@
+-# edit.html.haml using partial
+
+%h1 Add a business to #{@category.title}
+
+= form_tag category_path(@category), :method => :put do
+
+  = label :business, :title, 'Title'
+  = text_field :business, 'title'
+
+  = label :business, :rating, 'Rating'
+  = select :business, :rating, ['1','2','3','4','5']
+
+  = submit_tag 'Update Category Info'

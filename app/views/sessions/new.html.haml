@@ -1,0 +1,14 @@
+%h1 New html view
+
+- if flash[:alert]
+	%p{:id => 'notice'}= flash[:alert]
+
+= form_tag do
+
+	= label :sessions, :name, 'Name'
+	= text_field :sessions, 'name'
+
+	= label :sessions, :password, 'Password'
+	= text_field :sessions, 'password'
+
+	= submit_tag 'Log in'

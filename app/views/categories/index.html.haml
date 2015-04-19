@@ -1,0 +1,17 @@
+-#  This file is app/views/movies/index.html.haml
+
+
+%h1 All Categories
+
+%table#categories
+  %thead
+    %tr
+      %th='Category Title'
+      %th Description
+  %tbody
+    - @categories.each do |category|
+      %tr
+        %td= link_to "#{category.title}", category_path(category) 
+        %td= category.description
+
+= link_to 'Add new Category', new_category_path

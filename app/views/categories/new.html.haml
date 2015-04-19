@@ -1,0 +1,8 @@
+%h1 Create New Category
+
+= form_tag  do
+
+  = label :category, :title, 'Title'
+  = text_field :category, 'title'
+
+  = submit_tag 'Save Changes'
