@@ -27,6 +27,6 @@ cucumber:
 
 production:
   adapter: postgresql
-  database: name_of_your_db
+  database: db/production.sql
   pool: 5
   timeout: 5000
