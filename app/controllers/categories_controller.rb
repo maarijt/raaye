@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
 
 	def index
+		# if !session[:user_id] then redirect_to welcome_path end
 		@categories = Category.all
+		@current_user = User.find_by_id(session[:user_id])
 	end
 
 	def new
@@ -27,7 +29,8 @@ class CategoriesController < ApplicationController
 		@category = Category.new category_params
   		@category.save
   		redirect_to categories_path
-	end
+  	end
+  	
 	def destroy
 		@category = Category.find(params[:id])
     	@category.destroy
@@ -41,7 +44,7 @@ class CategoriesController < ApplicationController
   	end
 
   	def business_params
-    	params.require(:business).permit(:title, :rating, :category_id)
+    	params.require(:business).permit(:title, :rating, :category_id, :description)
   	end
 
 end

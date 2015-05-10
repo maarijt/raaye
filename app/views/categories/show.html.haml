@@ -1,16 +1,19 @@
 -# in app/views/movies/show.html.haml
 
-%h2 Details about #{@category.title}
+%h2 The Businessnes added to #{@category.title} are:
 
 %tbody
   - @category.businesses.each do |business|
     %tr
-      %td= link_to "More about #{business.title}", category_business_path(@category, business)
-
-%h3 Description:
+      %td= link_to "#{business.title}", category_business_path(@category, business)
 
 %p#description= @category.description
 
+%h3 You can:
+
+
+= link_to 'Search for a business', find_category_business_path
 = link_to 'Add a new business', edit_category_path(@category)
-= link_to 'Back to category list', categories_path
-= button_to 'Delete', category_path(@category), :method => :delete, :confirm => 'Are you sure?'
+= link_to 'Go back to category list', categories_path
+- if session[:username] == 'Maarij Tahir' then
+  = button_to 'Delete', category_path(@category), :method => :delete, :confirm => 'Are you sure?'

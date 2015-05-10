@@ -12,13 +12,22 @@ Rails.application.routes.draw do
     resources :businesses
   end
 
+  resources :businesses do
+    resources :reviews
+  end
+
   resources :users
-  get 'welcome/index'
+  get '/welcome' => 'welcome#index'
   get '/categories/:id/businesses/:id' => 'businesses#show'
 
   get '/categories' => 'categories#index'
 
+  get '/categories/:id/businesses/find' => 'businesses#find'
+
   post '/categories/new' => 'categories#create'
+
+  post '/categories/:id/businesses/:id/edit' => 'businesses#edit'
+
 
 #   get 'auth/:provider', to: 'sessions#create'
 # get 'auth/failure', to: redirect('/')
@@ -27,6 +36,10 @@ Rails.application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create', :via => [:get, :post]
   match 'auth/failure', to: redirect('/'), :via => [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', :via => [:get, :post]
+
+  resources :sessions, only: [:create, :destroy]
+  resource :home, only: [:show]
+  
   # get 'admin' => 'admin#index'
   # controller :sessions do
   #   get 'login' => :new

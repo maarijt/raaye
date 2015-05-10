@@ -1,0 +1,10 @@
+%h1 New Review for #{@business.title}
+ 
+= form_tag business_reviews_path(@business) do
+  %label your rating:
+  = select_tag 'review[rating]', options_for_select(1..10)
+
+  %label your comments:
+  = text_field :review, :comments
+
+  = submit_tag 'Create Review'

@@ -6,16 +6,16 @@
 %p
   %b Provider:
   = @user.provider
-%p
-  %b Uid:
-  = @user.uid
-%p
-  %b About:
-  = @user.about
-%p
-  %b Email:
-  = @user.email
 
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+%p
+  %b picture:
+  = image_tag @user.image
+
+
+- @businesses.each do |business|
+  %tr
+    %td= link_to "#{@user.name} gave a review to: #{business.title}", category_business_path(@category, business)
+    %br
+    %br
+
+= link_to 'Back', categories_path

@@ -1,1 +1,20 @@
 %h2 Details about #{@business.title}
+
+%tbody
+
+%h3 Description:
+
+= 'This business was rated: '
+%p#description= @business.rating
+
+- @reviews.each do |review|
+  %tr
+    %td= "#{review.username} said: #{review.comments}" 
+    %br 
+    %br
+
+
+= link_to 'Add a Review', new_business_review_path(@business)
+
+
+= button_to 'Delete', category_business_path(@category,@business), :method => :delete, :confirm => 'Are you sure?'

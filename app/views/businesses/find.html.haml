@@ -1,0 +1,8 @@
+%h1 Search for a business in #{@category.title}
+
+= form_tag find_category_business_path(@category, @business), :method => :put do
+
+  = label :business, :title, 'Title'
+  = text_field :business, 'title'
+
+  = submit_tag 'Search'

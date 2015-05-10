@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418200505) do
+ActiveRecord::Schema.define(version: 20150510103520) do
 
   create_table "businesses", force: true do |t|
     t.string   "title"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150418200505) do
     t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "description"
   end
 
   add_index "businesses", ["category_id"], name: "index_businesses_on_category_id"
@@ -31,6 +32,14 @@ ActiveRecord::Schema.define(version: 20150418200505) do
     t.datetime "updated_at"
   end
 
+  create_table "reviews", force: true do |t|
+    t.integer "rating"
+    t.text    "comments"
+    t.string  "username"
+    t.integer "user_id"
+    t.integer "business_id"
+  end
+
   create_table "users", force: true do |t|
     t.string   "provider"
     t.string   "uid"
@@ -39,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150418200505) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.binary   "image"
   end
 
 end
