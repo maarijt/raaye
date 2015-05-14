@@ -22,7 +22,21 @@ class CategoriesController < ApplicationController
 
 	def show
 		id = params[:id] 
-    	@category = Category.find(id)	
+		filter = params[:search]
+		@found = false
+
+		if filter != ""
+			puts "hefadasd"
+			@category = Category.find(id)
+			@business = @category.businesses.find_by_title(filter)
+			@businesses = @category.businesses
+			@found = true
+
+		else
+			puts "ABCSDASD"
+    		@category = Category.find(id)	
+    		@businesses = @category.businesses
+    	end
 	end
 
 	def create

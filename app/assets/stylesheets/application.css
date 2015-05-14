@@ -1,10 +1,12 @@
 html, body {
-  margin: 0;
-  padding: 0;
+  margin-left: 0px;
+  padding: 20px;
+  padding: 10px;
   background: White;
   color: DarkSlateGrey;
   font-family: Tahoma, Verdana, sans-serif;
-  font-size: 10pt;
+  font-size: 12pt;
+  text-align: center; 
 }
 div#main {
   margin: 0;

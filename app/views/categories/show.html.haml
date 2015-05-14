@@ -1,18 +1,42 @@
 -# in app/views/movies/show.html.haml
 
-%h2 The Businessnes added to #{@category.title} are:
+%h2 The Businesses added to #{@category.title} are:
 
+
+= form_tag category_path(@category), :method => :get do
+  = text_field_tag 'search', nil, placeholder: 'Enter search term...'
+
+  = submit_tag 'Search'
+
+%h2 All businesses:
 %tbody
-  - @category.businesses.each do |business|
-    %tr
-      %td= link_to "#{business.title}", category_business_path(@category, business)
+  - if @business == nil and @businesses != nil then
+    - if params[:search] == nil then
+      - @businesses.each do |business|
+        %tr
+          %td= link_to "#{business.title}", category_business_path(@category, business)
+
+
+    - else
+      %h4 "No entries match that businesses. Add it?"
+      - @businesses.each do |business|
+        %tr
+          %td= link_to "#{business.title}", category_business_path(@category, business)
+  - elsif @business != nil and @found == true then
+    %td= link_to "#{@business.title}", category_business_path(@category, @business)
+
+    %br
+    %br
+    = link_to 'Show all categories', category_path(@category)
+  - else  
+    - @businesses.each do |business|
+      %tr
+        %td= link_to "#{business.title}", category_business_path(@category, business)
 
 %p#description= @category.description
 
 %h3 You can:
 
-
-= link_to 'Search for a business', find_category_business_path
 = link_to 'Add a new business', edit_category_path(@category)
 = link_to 'Go back to category list', categories_path
 - if session[:username] == 'Maarij Tahir' then

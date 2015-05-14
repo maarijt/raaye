@@ -1,9 +1,8 @@
 class BusinessesController < ApplicationController
 	def show
-		
 		@category = Category.find_by_id(params[:category_id])
 		session[:category_id] = params[:category_id]
-		@business = @category.businesses.find(params[:id])
+		@business = @category.businesses.find_by_id(params[:id])
 		@reviews = @business.reviews
 	end
 
