@@ -1,5 +1,9 @@
 -# in app/views/movies/show.html.haml
 
+
+= link_to 'Back to Categories', categories_path, :id => 'go_back'
+%br
+
 %h2 The Businesses added to #{@category.title} are:
 
 
@@ -15,6 +19,8 @@
       - @businesses.each do |business|
         %tr
           %td= link_to "#{business.title}", category_business_path(@category, business)
+          %br
+          %br
 
 
     - else
@@ -38,6 +44,7 @@
 %h3 You can:
 
 = link_to 'Add a new business', edit_category_path(@category)
-= link_to 'Go back to category list', categories_path
+%br
+%br
 - if session[:username] == 'Maarij Tahir' then
   = button_to 'Delete', category_path(@category), :method => :delete, :confirm => 'Are you sure?'

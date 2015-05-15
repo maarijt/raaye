@@ -2,11 +2,11 @@ html, body {
   margin-left: 0px;
   padding: 20px;
   padding: 10px;
-  background: White;
-  color: DarkSlateGrey;
+  color: #2684AC;
   font-family: Tahoma, Verdana, sans-serif;
   font-size: 12pt;
   text-align: center; 
+  background-color: LightGrey;
 }
 div#main {
   margin: 0;
@@ -14,41 +14,59 @@ div#main {
 }
 a {
   background: transparent;
-  color: maroon;
-  text-decoration: underline;
+  color: #21404D;
+  text-decoration: none;
   font-weight: bold;
 }
+
+a:hover {
+  color: #2684AC;
+}
+
+#go_back {
+  float: left;
+}
+
 h1 {
-  color: maroon;
+  color: #2684AC;
   font-size: 150%;
   font-style: italic;
   display: block;
   width: 100%;
   border-bottom: 1px solid DarkSlateGrey;
 }
+
+h2,h3 {
+  color:#2684AC;
+}
 h1.title {
   margin: 0 0 1em;
   padding: 10px;
-  background-color: orange;
+  background-color: white;
   color: white;
   border-bottom: 4px solid gold;
   font-size: 2em;
   font-style: normal;
 }
+
+#bigbox {
+  width:40%;
+}
+
+table#categories {
+  color:#2684AC;
+} 
 table#categories {
   margin: 10px;
   border-collapse: collapse;
   width: 100%;
-  border-bottom: 2px solid black;
 }
 table#categories th {
-  border: 2px solid white;
-  font-weight: bold;
-  background-color: wheat;
-}
-table#categories th, table#categories td {
   padding: 4px;
   text-align: left;
+  color:#2684AC;
+  font-weight: bold;
+  text-align: center;
 }
 table#categories th.hilite {
   background-color: yellow;

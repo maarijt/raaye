@@ -1,3 +1,8 @@
+
+= link_to "Back to #{@category.title}", category_path(@category), :id => 'go_back'
+
+%br
+%br
 %h2 Details about #{@business.title}
 
 %tbody
@@ -15,6 +20,7 @@
 
 
 = link_to 'Add a Review', new_business_review_path(@business)
-
+%br
+%br
 
 = button_to 'Delete', category_business_path(@category,@business), :method => :delete, :confirm => 'Are you sure?'
